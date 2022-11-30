@@ -198,11 +198,31 @@ Aşağıdakileri yapmak için ortalamaKelimeSayisi işlevini kullanın:
 
    Örneğin: ortalamaKelimeSayisi(orijinalTatlar) 0 ile 2 arasında bir sayı döndürmelidir.
 */
-
 function ortalamaKelimeSayisi(orijinalTatlar){
-  let sesliHarfSayisi=0;
+  let boslukSayisi=0;
   let kelimeSayisi =[];
   let toplamKelimeSayisi = 0;
+  for (let i = 0; i<orijinalTatlar.length; i++){
+    for(let j = 0; j<orijinalTatlar[i].length; j ++){
+      if (orijinalTatlar[i].charAt(j)===" "){
+        boslukSayisi = boslukSayisi + 1;
+      }
+    }
+    kelimeSayisi.push(boslukSayisi+1);
+    boslukSayisi = 0;
+  }
+ for (let k = 0; k<kelimeSayisi.length; k++){
+    toplamKelimeSayisi = toplamKelimeSayisi + kelimeSayisi[k];
+ }
+ console.log(kelimeSayisi);
+ return toplamKelimeSayisi/kelimeSayisi.length;
+}
+
+
+function ortalamaHeceSayisi(orijinalTatlar){
+  let sesliHarfSayisi=0;
+  let heceSayisi =[];
+  let toplamHeceSayisi = 0;
   for (let i = 0; i<orijinalTatlar.length; i++){
     for(let j = 0; j<orijinalTatlar[i].length; j ++){
       if (orijinalTatlar[i].charAt(j)==="a"||
@@ -224,14 +244,14 @@ function ortalamaKelimeSayisi(orijinalTatlar){
         sesliHarfSayisi = sesliHarfSayisi + 1;
       }
     }
-    kelimeSayisi.push(sesliHarfSayisi);
+    heceSayisi.push(sesliHarfSayisi);
     sesliHarfSayisi = 0;
   }
- for (let k = 0; k<kelimeSayisi.length; k++){
-    toplamKelimeSayisi = toplamKelimeSayisi + kelimeSayisi[k];
+ for (let k = 0; k<heceSayisi.length; k++){
+    toplamHeceSayisi = toplamHeceSayisi + heceSayisi[k];
  }
-
- return toplamKelimeSayisi/kelimeSayisi.length;
+ 
+ return toplamHeceSayisi/heceSayisi.length;
 }
 
 
