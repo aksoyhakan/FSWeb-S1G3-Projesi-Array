@@ -39,10 +39,11 @@ Aşağıdakileri yapmak için aşağıdaki kopyalama işlevini kullanın:
    2. Alınan dizinin bir kopyasını döndür
 */
 
-let kopyaOrijinalTatlar = ["","","","","","","","","","","","","","","","","","","","","","","","","",]
+
 function kopyala(orijinalTatlar){
+  let kopyaOrijinalTatlar = [];
     for (let i = 0; i<orijinalTatlar.length; i++){
-    kopyaOrijinalTatlar[i] = orijinalTatlar[i];
+    kopyaOrijinalTatlar.push(orijinalTatlar[i]);
   }
   return kopyaOrijinalTatlar;
 }
@@ -178,10 +179,9 @@ let arananKelime = "Çikolata"
 
 function ismeGoreFiltrele(orijinalTatlar, arananKelime){
   
-  function isimCheck (orijinalTatlar){
-    return orijinalTatlar.includes(arananKelime);
-  }
- let hakan = orijinalTatlar.filter(isimCheck)
+  let hakan = orijinalTatlar.filter(function (orijinalTatlar){
+  return orijinalTatlar.includes(arananKelime);
+})
  return hakan;
 }
 
